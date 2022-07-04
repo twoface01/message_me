@@ -6,13 +6,13 @@
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui small feed">
+      <div class="content" id="chatroom">
+        <div class="ui small feed" id="chatroom-container">
           <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-        <%= form_with(scope: @message, url: message_path, local: true, html: { class: "ui reply form" }) do |f| %>
+        <%= form_with(scope: @message, url: message_path, local: false, html: { class: "ui reply form" }) do |f| %>
           <div class="ui fluid icon input focus">
             <%= f.text_field :body, placeholder: "Enter your message ..." %>
             <%= f.button '<i class="bordered inverted red icon paper plane"></i>'.html_safe %>
