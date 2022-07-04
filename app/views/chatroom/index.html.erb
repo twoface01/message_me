@@ -12,12 +12,12 @@
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
+        <%= form_with(scope: @message, url: message_path, local: true, html: { class: "ui reply form" }) do |f| %>
           <div class="ui fluid icon input focus">
-            <input type="text" placeholder="Enter your message...">
-            <i class="bordered inverted red icon paper plane"></i>
+            <%= f.text_field :body, placeholder: "Enter your message ..." %>
+            <%= f.button '<i class="bordered inverted red icon paper plane"></i>'.html_safe %>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
